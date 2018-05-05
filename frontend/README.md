@@ -3,12 +3,17 @@
 The objective of the project is to build a content and comment web app, where users will be able to post content to predefined categries, comment on their post and other user's posts, and vote on posts and comments. Morover the users will be able to edit and delete posts and comments.
 
 
-## TL;DR
+## How to run this project
 
-To get started developing right away:
+Firstly, we need to install and then start API server, run the following commands in `api-server` directory:
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+* `npm install`
+* `npm start`
+
+Secondly, we need to install all project dependencies and then start the development server, run the following commands in `frontend` directory:
+
+* `npm install`
+* `npm start`
 
 
 The following page will under-construction ...... 
