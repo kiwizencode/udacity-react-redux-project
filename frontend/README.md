@@ -15,10 +15,7 @@ Secondly, we need to install all project dependencies and then start the develop
 * `npm install`
 * `npm start`
 
-
-The following page still under-construction ...... 
-
-## What You're Getting
+## Here is the project structure
 ```bash
 ├── README.md - This file.
 ├── package.json # npm package manager file.
@@ -26,74 +23,69 @@ The following page still under-construction ......
 │   ├── favicon.ico # React Icon.
 │   └── index.html # DO NOT MODIFY
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── App.css # Global styles for MyRead App.
-    └── App.js # This is react component that attached to 'root' HTML element that is used to render either MainPage react component or SearchPage react component.
-    └── Book.js # This is the react component that render 'Book' information onto UI.
-    └── BookShelf.js # This is the react component that render 'BookShelf' information onto UI. It in turn call Book.js to render individual 'Book' information.
-    └── BookAPI.js # This is the javascript library that implement the RESTful API for react component to call backend server to push or pull 'Book' information.
-    └── MainPage.js # This is react component that render the 'Main Page' html. It will call Bookshelf components to render individual 'BookShelf' onto UI.
-    └── PageNotFound.js # This is react component that render the 404 error 'Page Not Found' html. 
-    └── SearchPage.js # This is the react component that render 'Search Book' html. This page allow user to search for books and also added to 'BookShelf' in 'Main Page' html.
-    ├── index.css # styles sheet for index.js. 
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+    ├── actions
+    │   ├── categories.js # Actions & Action creators for categories.
+    │   ├── comments.js # Actions & Action creators for (post) comment.
+    │   ├── index.js # main file that exports all Action & Action creators.
+    │   ├── posts.js # Actions & Action creators for posts.
+    │   └── sort_post # Actions & Action creators for sorting of posts.
+    ├── components
+    │   └── main_section # components related to main section.
+    │   │   └── main_nav # components realted to main navigation section.
+    │   │   │   ├── Category.css # Styles for category component.
+    │   │   │   ├── Category.js # react component that render a Link component for a category.
+    │   │   │   ├── CategorySelector.css # Styles for category selector component.
+    │   │   │   ├── CategorySelector.js # react component that render a list of Category components for user to select. This is done by using a container component FilterCategory for the Category component.
+    │   │   │   ├── MainNav.css # Styles for main navigation section component.
+    │   │   │   ├── MainNav.js # this is the main navigation section componen which, in turn, render both CategorySelector component and SortPostSelector component. 
+    │   │   │   ├── SortPostSelector.css # Styles for sorting of post component.
+    │   │   │   ├── SortPostSelector.js # react component that render a list of post attributes for user to select to sort post by. 
+    │   │   ├── comment.svg # background image for no of comments. 
+    │   │   ├── CommentCards.css # Styles for comment 'card' component.
+    │   │   ├── CommentCards.js # react component that render comment information.
+    │   │   ├── CommentModalDialog.css # Styles for comment dialog box component.
+    │   │   ├── CommentModalDialog.js # react component that render a modal dialog box to display comment's information. (for creating/editing/deleting comment operation)
+    │   │   ├── CommentSection.js # This is the (main) comment section component which will display a list of comment 'card' for a particular post. It also contain separate CommentModalDialog components for editing and deleting of comment.
+    │   │   ├── heart.svg # background image for no of voteScore for both post and comment component. 
+    │   │   ├── MainSection.js # This is the Main Section component. It will display the main navigation component as well as the post section. It will contain separate PostModalDialog components for creating, editing and deleting of post. In addition, it will also contain a CommentModalDialog components to create new comment.
+    │   │   ├── PostCard.css # Styles for post 'card' component. 
+    │   │   ├── PostCard.js # react component that render render either post summary (POST_SUMMARY) or post detail (POST_DETAIL) information.
+    │   │   ├── PostModalDialog.css # Styles for post dialog box component.
+    │   │   ├── PostModalDialog.js # react component that render a modal dialog box to display post's information. (for creating/editing/deleting post operation)
+    │   │   ├── thumbs-down.svg # background image for 'down' voteScore for both post and comment component. 
+    │   │   ├── thumbs-up.svg # background image for 'up' voteScore for both post and comment component. 
+    │   ├── App.js # This is the root of the app. It will render Header component as well as Footer component. It also setup the routing for MainSection component for the app.
+    │   ├── Footer.css # Styles for footer section component.
+    │   ├── Footer.js # react component that render the footer section of the main page.
+    │   ├── Header.css # Styles for header section component.
+    │   ├── Header.js # react component that render the header section of the main page.
+    │   ├── NoMatch.css # Styles for No Match component.
+    │   └── NoMatch.js # react component that render a page when encounter 404 page in the app.   
+    ├── containers # components that incorporate redux store data state and dispatch function with some of the react components.
+    │   ├── FilterCategory.js # This add redux data state or dispatch function to Category component. This perform some action when user select a categoryb (in CategorySelector.js)
+    │   ├── Main.js # This add redux store data or dispatch function to MainSection component. It's basically perform sort operation on the list of post based on user selection (in SortPostSelector.js) and store the result ina varianble called sorted_posts.
+    │   └── Readable.js # This add redux store data or dispatch function to App (root) component. It define most of the redux store state as well as functions required in the whole application.  
+    ├── reducers # components that specify how the application's state changes in response to actions sent to the store.
+    │   ├── categories.js # reducers for categories.
+    │   ├── category.js # reducers for action when user select a category (in CategorySelector.js). It also change for any change in url and update the state of the category based on the change in url.
+    │   ├── comments.js # reducers for (post) comment.
+    │   ├── index.js # main file that exports all reducers ( including redux router reducer).
+    │   ├── posts.js # reducers for posts.
+    │   └── sort_post # reducers for sorting of posts.
+    ├── utils # java script that perform general function in the application.
+    │   ├── constant_helper.js # define constant used in the application.
+    │   ├── db_api_helper.js # define functions to perform web api to the backend server.
+    │   └── sort_post_helper.js # define constants related to sorting of post.
+    ├── index.css # styles sheet for index.js. I have added some common elements style sheet, which is standard throughout the whole project.   
+    └── index.js # It has the follwoing tasks : create the store, middleware, as well as synchronize router history with store. And finally it is render the main component to DOM.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+## Following are rescources that I used in preparing for this project
 
-## Backend Server
-
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
-
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
-
-### `getAll`
-
-Method Signature:
-
-```js
-getAll()
-```
-
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* This collection represents the books currently in the bookshelves in your app.
-
-### `update`
-
-Method Signature:
-
-```js
-update(book, shelf)
-```
-
-* book: `<Object>` containing at minimum an `id` attribute
-* shelf: `<String>` contains one of ["wantToRead", "currentlyReading", "read"]  
-* Returns a Promise which resolves to a JSON object containing the response data of the POST request
-
-### `search`
-
-Method Signature:
-
-```js
-search(query, maxResults)
-```
-
-* query: `<String>`
-* maxResults: `<Integer>` Due to the nature of the backend server, search results are capped at 20, even if this is set higher.
-* Returns a Promise which resolves to a JSON object containing a collection of book objects.
-* These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
-
-## Important
-
+[React Redux Todo List example](https://redux.js.org/basics/example-todo-list) 
+[Usage with React Router](https://redux.js.org/advanced/usage-with-react-router)
+[Managing the URL in a Redux app](https://blog.marvelapp.com/managing-the-url-in-a-redux-app/)
+Create a react modal dialog with [react-modal](https://github.com/reactjs/react-modal)
 
 ## Create React App
 
