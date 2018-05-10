@@ -16,7 +16,7 @@ Secondly, we need to install all project dependencies and then start the develop
 * `npm start`
 
 
-The following page will under-construction ...... 
+The following page still under-construction ...... 
 
 ## What You're Getting
 ```bash
