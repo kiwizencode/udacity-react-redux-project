@@ -5,7 +5,7 @@ The objective of the project is to build a content and comment web app, where us
 
 ## How to run this project
 
-Firstly, we need to install and then start API server, run the following commands in `api-server` directory:
+Firstly, we need to install and then start backend server, run the following commands in `api-server` directory:
 
 * `npm install`
 * `npm start`
