@@ -82,10 +82,10 @@ Secondly, we need to install all project dependencies and then start the develop
 
 ## Following are rescources that I used in preparing for this project
 
-[React Redux Todo List example](https://redux.js.org/basics/example-todo-list) 
-[Usage with React Router](https://redux.js.org/advanced/usage-with-react-router)
-[Managing the URL in a Redux app](https://blog.marvelapp.com/managing-the-url-in-a-redux-app/)
-Create a react modal dialog with [react-modal](https://github.com/reactjs/react-modal)
+* [React Redux Todo List example](https://redux.js.org/basics/example-todo-list) 
+* [Usage with React Router](https://redux.js.org/advanced/usage-with-react-router)
+* [Managing the URL in a Redux app](https://blog.marvelapp.com/managing-the-url-in-a-redux-app/)
+* Create a react modal dialog with [react-modal](https://github.com/reactjs/react-modal)
 
 ## Create React App
 
